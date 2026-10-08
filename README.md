@@ -98,6 +98,15 @@ The filter method uses statistical measures to score each feature, such as the c
 
 ## Q5. Which features did each of the three methods choose? Put them in a short table.
 
+| Method | Type | Features Selected |
+|---|---|---|
+| Correlation (threshold > 0.5) | Filter | `study hours`, `assignments completed`, `class participation` |
+| `RFECV` | Wrapper | `assignments completed` |
+| `LassoCV` | Embedded | `study hours`, `class participation`, `extracurricular activities` |
+
+## Errors we found
+In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputation step. The original code used `inplace=True` when filling missing values (`df['Year'].fillna(df['Year'].mean(), inplace=True)`). The correct, future-proof version should avoid chained assignment by explicitly assigning the result back to the column: `df['Year'] = df['Year'].fillna(df['Year'].mean())`.
+
 # Chapter 8: Constructing a Preprocessing Pipeline
 
 ## Q1. What is a preprocessing pipeline? Explain it using the conveyor belt idea from the notebook.
@@ -125,14 +134,6 @@ Imputation runs first, then scaling.
 
 The **`Age`** and **`Fare`** columns.
 
-| Method | Type | Features Selected |
-|---|---|---|
-| Correlation (threshold > 0.5) | Filter | `study hours`, `assignments completed`, `class participation` |
-| `RFECV` | Wrapper | `assignments completed` |
-| `LassoCV` | Embedded | `study hours`, `class participation`, `extracurricular activities` |
-
-## Errors we found
-In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputation step. The original code used `inplace=True` when filling missing values (`df['Year'].fillna(df['Year'].mean(), inplace=True)`). The correct, future-proof version should avoid chained assignment by explicitly assigning the result back to the column: `df['Year'] = df['Year'].fillna(df['Year'].mean())`.
 
 ## Note on AI tools
 
