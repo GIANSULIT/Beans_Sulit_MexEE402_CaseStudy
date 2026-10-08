@@ -11,17 +11,17 @@ Batangas State University, Alangilan Campus
 | Beans, Zachary U. | 1 |MEXE - 4102|
 | Sulit, Gian karl M. | 2 |MEXE - 4102|
 
-## Notebook links[cite: 1]
+## Notebook links
 
 | Chapter | Member 1 | Member 2 |
 |---|---|---|
-| Ch1_2_3 | [link]() | [link]() |
-| Ch4 | [link]() | [link]() |
-| Ch5 | [link]() | [link]() |
-| Ch6 | [link]() | [link]() |
-| Ch7 | [link]() | [link]() |
-| Ch8 | [link]() | [link]() |
-| Ch9 | [link]() | [link]() |
+| Ch1_2_3 | [link]() |https://colab.research.google.com/drive/1RIAxNAQ7HxPYDXn_e7EjG_1KfLG5u2nX?usp=sharing|
+| Ch4 | [link]() |https://colab.research.google.com/drive/12Ks5OK7ZAm5oW5FvvWpwfpUV6JeLTQQ8?usp=drive_link|
+| Ch5 | [link]() |https://colab.research.google.com/drive/1f_-z42xfyXx9l_O4cv-do5XEITr146Ng?usp=sharing|
+| Ch6 | [link]() |https://colab.research.google.com/drive/14iqHmap1PaqyyxHldshIERxBG3Ij8_v6?usp=drive_link|
+| Ch7 | [link]() |https://colab.research.google.com/drive/17G4HH2PQe9VLV-z4C58Ywdqs02rzbZyA?usp=drive_link|
+| Ch8 | [link]() |https://colab.research.google.com/drive/1Ka60tQQpK6HKxxUP5R2Lp05Nhk6ZJwTK?usp=drive_link|
+| Ch9 | [link]() |https://colab.research.google.com/drive/1_8bIt68agPEshtAWBnlHsSWmS-iFyM1K?usp=sharing|
 
 ## What we learned
 
