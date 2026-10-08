@@ -39,6 +39,41 @@ Batangas State University, Alangilan Campus
 
 **Chapter 9:** We applied everything we learned to the Titanic dataset, managing mixed data types through a comprehensive pipeline that included discretization and log transformations. We realized that putting all the preprocessing steps together requires careful planning, but it ultimately prepares complex real-world data for immediate and effective modeling.
 
+## Chapter Questions
+
+# Chapter 6: Outlier Detection
+
+## Q1. What is an outlier?
+
+An outlier is a data point that is very different from most of the other data. For example, if most students study 10–20 hours a week but one studies 100 hours, that student is an outlier. Outliers can skew results and lead to wrong conclusions.
+
+## Q2. How does the Z-score method find outliers? What cutoff did the notebook use?
+
+The Z-score method measures how many standard deviations a value is from the mean, using:
+Z = (X – μ) / σ
+
+A value that is too far from the mean is flagged as an outlier. The notebook used a cutoff of **3**, so any value with a Z-score below -3 or above 3 counts as an outlier.
+
+## Q3. How does the IQR method find outliers? Write the formula for the lower and upper fence.
+
+The IQR method looks at the middle 50% of the data, between Q1 and Q3, where `IQR = Q3 – Q1`. Any value that falls too far outside that middle range is an outlier.
+
+- **Lower fence** = `Q1 – 1.5 × IQR`
+- **Upper fence** = `Q3 + 1.5 × IQR`
+
+Values below the lower fence or above the upper fence are outliers.
+
+## Q4. In the sample data, which value stands out from the rest? What is its Z-score?
+
+The value **100** stands out from the rest of the data (`10, 12, 12, 15, 20, 21, 22, 100`). Its Z-score is about **2.62**.
+
+Note: the Z-score method did not flag it, since 2.62 is below the cutoff of 3, but the IQR method did catch it.
+
+## Q5. Once you find an outlier, give two things you can do about it.
+
+1. **Remove it**, if it is clearly an error or does not belong in the data.
+2. **Keep it but investigate or adjust it**, for example by checking why it happened, or by replacing it with a more typical value such as the median.
+
 ## Errors we found
 In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputation step. The original code used `inplace=True` when filling missing values (`df['Year'].fillna(df['Year'].mean(), inplace=True)`). The correct, future-proof version should avoid chained assignment by explicitly assigning the result back to the column: `df['Year'] = df['Year'].fillna(df['Year'].mean())`.
 
