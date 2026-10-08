@@ -98,6 +98,33 @@ The filter method uses statistical measures to score each feature, such as the c
 
 ## Q5. Which features did each of the three methods choose? Put them in a short table.
 
+# Chapter 8: Constructing a Preprocessing Pipeline
+
+## Q1. What is a preprocessing pipeline? Explain it using the conveyor belt idea from the notebook.
+
+A preprocessing pipeline is a series of data preparation steps that run automatically, one after another. Think of it like a conveyor belt: each station on the belt is one preprocessing step (such as cleaning, normalization, or encoding). The data enters the belt raw, passes through each station in order, and comes out the other end ready to be used by a machine learning model.
+
+## Q2. The notebook gives three reasons for using a pipeline. Name all three.
+
+1. **Automation**: routine preprocessing is handled automatically.
+2. **Efficiency**: it streamlines the steps for a faster workflow.
+3. **Reliability and reproducibility**: it reduces human error and gives consistent results every time.
+
+## Q3. What two steps were inside the pipeline, and in what order did they run?
+
+1. **Imputation** (`SimpleImputer`, strategy = `mean`): fills in missing values with the mean.
+2. **Scaling** (`StandardScaler`): standardizes the values so they have a mean of 0 and a standard deviation of 1.
+
+Imputation runs first, then scaling.
+
+## Q4. What does `ColumnTransformer` do?
+
+`ColumnTransformer` applies a preprocessing pipeline to specific columns of the dataset. In the notebook, it was used to apply the imputation and scaling pipeline only to the chosen columns, and `fit_transform` then turned `X` into the cleaned and scaled `X_transformed`.
+
+## Q5. Which two columns of the Titanic dataset were preprocessed in this chapter?
+
+The **`Age`** and **`Fare`** columns.
+
 | Method | Type | Features Selected |
 |---|---|---|
 | Correlation (threshold > 0.5) | Filter | `study hours`, `assignments completed`, `class participation` |
