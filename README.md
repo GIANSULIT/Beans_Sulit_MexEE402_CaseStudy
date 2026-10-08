@@ -67,12 +67,42 @@ Values below the lower fence or above the upper fence are outliers.
 
 The value **100** stands out from the rest of the data (`10, 12, 12, 15, 20, 21, 22, 100`). Its Z-score is about **2.62**.
 
-Note: the Z-score method did not flag it, since 2.62 is below the cutoff of 3, but the IQR method did catch it.
-
 ## Q5. Once you find an outlier, give two things you can do about it.
 
 1. **Remove it**, if it is clearly an error or does not belong in the data.
 2. **Keep it but investigate or adjust it**, for example by checking why it happened, or by replacing it with a more typical value such as the median.
+
+# Chapter 7: Feature Selection
+
+## Q1. What is feature selection, and why is it useful?
+
+Feature selection is the process of choosing the most relevant features (columns) in a dataset to use for prediction. It is useful because irrelevant features can reduce the accuracy of a model, so keeping only the important ones gives better and simpler results.
+
+## Q2. What does the filter method use to decide which features to keep?
+
+The filter method uses statistical measures to score each feature, such as the correlation coefficient, chi-square test, or information gain. Features are ranked by their scores, and the ones with low scores are removed. In the notebook, features were kept only if their correlation with `final grade` was **above 0.5**.
+
+## Q3. What does `RFECV` do, step by step?
+
+`RFECV` (Recursive Feature Elimination with Cross-Validation) is a wrapper method that works like this:
+
+1. Train a model (here, `SVR` with a linear kernel) using all the features.
+2. Remove the least important feature (`step=1` removes one at a time).
+3. Retrain the model and check its performance using cross-validation (`cv=5`, which splits the data into 5 parts).
+4. Repeat until the features run out.
+5. Keep the set of features that gave the best score.
+
+## Q4. What does `LassoCV` do to features that are not important?
+
+`LassoCV` is an embedded method that selects features while training the model. It shrinks the coefficients (weights) of unimportant features, setting them to **zero**, which effectively removes them. Only features with a coefficient greater than zero are kept as important.
+
+## Q5. Which features did each of the three methods choose? Put them in a short table.
+
+| Method | Type | Features Selected |
+|---|---|---|
+| Correlation (threshold > 0.5) | Filter | `study hours`, `assignments completed`, `class participation` |
+| `RFECV` | Wrapper | `assignments completed` |
+| `LassoCV` | Embedded | `study hours`, `class participation`, `extracurricular activities` |
 
 ## Errors we found
 In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputation step. The original code used `inplace=True` when filling missing values (`df['Year'].fillna(df['Year'].mean(), inplace=True)`). The correct, future-proof version should avoid chained assignment by explicitly assigning the result back to the column: `df['Year'] = df['Year'].fillna(df['Year'].mean())`.
