@@ -170,7 +170,7 @@ In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputatio
 
 ## Note on AI tools
 
-We used an AI tool, specifically Gemini Pro to help complete the chapter tasks by assisting with code construction, then it was used to provide easy to digest in-depth definitions of terms and process to assists the members to answer the chapter question. The chapter questions were then answered in summary by the members. Finally, we used ai to assist format this README file according to the required template and to assist in drafting the summary paragraphs for our chapter learnings based on our notebook executions.
+We used an AI tool, specifically Gemini Pro to help complete the chapter tasks by assisting with code construction, then it was used to provide easy to digest in-depth definitions of terms and process for the more technical questions to assists the members to answer the chapter question. The chapter questions were then answered in summary by the members. Finally, we used ai to assist format this README file according to the required template and to assist in drafting the summary paragraphs for our chapter learnings based on our notebook executions.
 
 ## References
 
