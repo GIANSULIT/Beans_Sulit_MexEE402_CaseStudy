@@ -131,12 +131,46 @@ Imputation runs first, then scaling.
 
 The **`Age`** and **`Fare`** columns.
 
+# Chapter 9: Full Pipeline and Visualization
+
+## Q1. Which columns were handled as numerical, and which as categorical?
+
+- **Numerical:** `Age` and `Fare`
+- **Categorical:** `Embarked`, `Sex`, and `Pclass`
+
+## Q2. How were the missing values filled in each of those two groups?
+
+- **Numerical columns (`Age`, `Fare`):** missing values were filled with the **median** of the column (`SimpleImputer(strategy='median')`). The values were then scaled with `StandardScaler`.
+- **Categorical columns (`Embarked`, `Sex`, `Pclass`):** missing values were filled with the constant text **"missing"** (`SimpleImputer(strategy='constant', fill_value='missing')`). The columns were then converted with `OneHotEncoder`.
+
+## Q3. What is discretization? What three age labels did the notebook use, and what age ranges do they cover?
+
+Discretization means converting continuous numbers (like exact ages) into a few groups or bins (like life stages). In the notebook, `Age` was split using `pd.cut` with the bins `[0, 12, 50, 200]`:
+
+| Label | Age Range |
+|---|---|
+| Child | 0 to 12 |
+| Adult | 13 to 50 |
+| Elderly | Above 50 |
+
+## Q4. Name three of the plots you produced, and say in one sentence what each one shows.
+
+1. **Survival by Gender** (count plot): shows how many males and females survived or did not survive.
+2. **Survival by Passenger Class** (count plot): shows how survival differed between 1st, 2nd, and 3rd class passengers.
+3. **Correlation Heatmap**: shows how strongly the numeric columns are related to each other, using colors and correlation values.
+
+Other plots in the notebook: Survival Count, Age Distribution by Survival, Fare vs Survival (box plot), Survival by Embarkation Port, and Survival by Family Size.
+
+## Q5. Why is it useful to make plots after preprocessing instead of before?
+
+Plots made after preprocessing show whether the cleaning and transformation actually worked. Missing values are filled, so the data is complete and the patterns are easier to read. Comparing the data before and after (for example, the `Age` distribution) also helps catch mistakes early, so the data is confirmed to be clean and ready before it goes into a model.
+
 ## Errors we found
 In the Chapter 1, 2, 3 notebook, we found a `FutureWarning` during the imputation step. The original code used `inplace=True` when filling missing values (`df['Year'].fillna(df['Year'].mean(), inplace=True)`). The correct, future-proof version should avoid chained assignment by explicitly assigning the result back to the column: `df['Year'] = df['Year'].fillna(df['Year'].mean())`.
 
 ## Note on AI tools
 
-We used an AI tool, specifically Gemini Pro to help complete the chapter tasks and format this README file according to the required template and to assist in drafting the summary paragraphs for our chapter learnings based on our notebook executions.
+We used an AI tool, specifically Gemini Pro to help complete the chapter tasks by assisting with code construction, then it was used to provide easy to digest in-depth definitions of terms and process to assists the members to answer the chapter question. The chapter questions were then answered in summary by the members. Finally, we used ai to assist format this README file according to the required template and to assist in drafting the summary paragraphs for our chapter learnings based on our notebook executions.
 
 ## References
 
